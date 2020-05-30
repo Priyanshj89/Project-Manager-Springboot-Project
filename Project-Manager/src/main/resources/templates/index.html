@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       >
+<head>
+    <title>Project-Manager</title>
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{css/style.css}" />
+
+    <link rel="stylesheet" href="../../static/css/darkly/bootstrap.min.css"  th:href="@{css/darkly/bootstrap.min.css}" />
+    <script th:src="@{webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:replace="fragments/header::header"></div>
+<div class="container mySpace">
+    <div class="About">
+        <u><h2> Easy working with projects</h2></u>
+        <h4><p>A site where you can work on a project with ease
+
+            It allows us to give tasks to our peers.
+            You can even post messages and talk professionally.
+            special privilege only to the admin.
+        </p>
+            <br>
+        </h4>
+        <i>
+        <h4>Essentially, the project manager is accountable for the success or failure of a project. Typical responsibilities of a project manager include:</h4>
+        <h5>
+            <br>
+        <ul>
+            <li>Planning, Executing, and Closing Projects — defining the project, building its comprehensive work plan, and managing to the budget</li>
+            <li>Managing Teams — facilitating commitment and productivity, removing obstacles, and motivating team members</li>
+            <li>Managing Expectations — aligning projects to business goals, managing stakeholders, and communicating project status, milestones, and unexpected difficulties effectively</li>
+        </ul>
+        </h5>
+        </i>
+    </div>
+</div>
+<div th:replace="fragments/footer::footer"></div>
+</body>
+</html>

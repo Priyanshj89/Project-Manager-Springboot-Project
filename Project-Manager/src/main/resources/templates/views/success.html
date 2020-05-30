@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}" >
+<head>
+    <title>Index Page</title>
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{css/style.css}" />
+
+    <link rel="stylesheet" href="../../static/css/darkly/bootstrap.min.css"  th:href="@{css/darkly/bootstrap.min.css}" />
+    <script th:src="@{webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:replace="fragments/header::header"></div>
+<div  layout:fragment="content" class="container mySpace">
+    <div class="alert alert-success">
+        Registration success!! Please sign in  to Continue
+    </div>
+</div>
+<div th:replace="fragments/footer::footer"></div>
+</body>
+</html>

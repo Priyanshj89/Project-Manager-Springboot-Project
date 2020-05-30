@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <title>Project Chat's</title>
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{css/style.css}" />
+
+    <link rel="stylesheet" href="../../static/css/darkly/bootstrap.min.css"  th:href="@{css/darkly/bootstrap.min.css}" />
+    <script th:src="@{webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:replace="fragments/header::header"></div>
+<div class="container mySpace">
+    <h1>Chats</h1>
+    <hr>
+    <br>
+    <div th:each="post:${aPost}" class="card">
+        <div class="card card-body">
+            <u><i><h2 th:text="${post.user.name}"></h2></i></u>
+            <h3 th:text="${post.heading}"></h3>
+            <!--<h3 th:text="${post.user_email}"></h3>-->
+            <h4 th:text="${post.date}"></h4>
+            <br>
+            <h6><p th:text="${post.description}"></p></h6>
+            <a  th:href="@{/deletePost(id=${post.id})}" class="btn btn-danger" sec:authorize="hasRole('ROLE_ADMIN')">Delete Post</a>
+        </div>
+        <br>
+    </div>
+</div>
+<div th:replace="fragments/footer::footer"></div>
+</body>
+</html>

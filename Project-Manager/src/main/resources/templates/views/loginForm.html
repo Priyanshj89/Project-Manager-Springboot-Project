@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}">
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{css/style.css}" />
+
+    <link rel="stylesheet" href="../../static/css/darkly/bootstrap.min.css"  th:href="@{css/darkly/bootstrap.min.css}" />
+    <script th:src="@{webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:replace="fragments/header::header"></div>
+<div layout:fragment="content" class="container mySpace">
+    <div class="alert alert-danger" th:if="${param.error}">
+
+        <h2>Invalid Email or Password</h2>
+    </div>
+    <form th:action="@{/login}"  method="post">
+
+        <div class="form-group">
+            <label for="email" class="form-control-label">Email</label> <input
+                type="text" class="form-control"  id="email" name="username" />
+
+        </div>
+        <div class="form-group">
+            <label for="password" class="form-control-label">Password</label> <input
+                type="password" class="form-control"
+                id="password"  name="password"/>
+
+
+        </div>
+
+        <input type="submit" value="Submit" class="btn btn-primary" />
+
+    </form>
+</div>
+<div th:replace="fragments/footer::footer"></div>
+</body>
+</html>

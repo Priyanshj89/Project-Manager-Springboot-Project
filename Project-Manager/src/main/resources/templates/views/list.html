@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      >
+<head>
+    <title>User info</title>
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{css/style.css}" />
+
+    <link rel="stylesheet" href="../../static/css/darkly/bootstrap.min.css"  th:href="@{css/darkly/bootstrap.min.css}" />
+    <script th:src="@{webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:replace="fragments/header::header"></div>
+<div class="container mySpace">
+    <form action="/users" class="form-inline">
+        <div class="form-group mb-2">
+            <input type="text" class="form-control" name="name" placeholder="Search User" />
+            <input type="submit" value="Search"  class="btn btn-primary"/>
+        </div>
+    </form>
+    <div class="card">
+        <div class="card card-body">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Add Task</th>
+                    <th>View Task</th>
+                    <th>View Message</th>
+                    <!--<th>Remove User</th>-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user:${users}">
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td><a  th:href="@{/addTask(email=${user.email})}" class="btn btn-secondary">Add Task</a></td>
+                   <td><a  th:href="@{/viewTask(email=${user.email})}" class="btn btn-info">View Task</a></td>
+                    <td><a  th:href="@{/viewPost(email=${user.email})}" class="btn btn-primary">View Message</a></td>
+
+                    <!-- <td><a  th:href="@{/deleteUser(email=${user.email})}" class="btn btn-danger">Remove</a></td>-->
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer::footer"></div>
+</body>
+</html>

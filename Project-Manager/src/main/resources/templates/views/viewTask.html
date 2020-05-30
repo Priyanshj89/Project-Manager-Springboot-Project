@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}">
+<head>
+    <title>User Tasks</title>
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{css/style.css}" />
+
+    <link rel="stylesheet" href="../../static/css/darkly/bootstrap.min.css"  th:href="@{css/darkly/bootstrap.min.css}" />
+    <script th:src="@{webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:replace="fragments/header::header"></div>
+<div  class="container mySpace">
+
+    <!--/*
+    <table>
+        <tr>
+            <th>NAME</th>
+            <th th:text="userView:${user.name}"></th>
+        </tr>
+    </table>
+    */-->
+    <div class="card">
+        <div class="card card-body">
+            <table class="table table-hover">
+
+                <thead>
+
+                <tr>
+                    <th>Date</th>
+                    <th>Start</th>
+                    <th>Deadline</th>
+                    <th>Description</th>
+                    <th>Delete Task</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="task:${viewTasks}">
+                    <td th:text="${task.date}"></td>
+                    <td th:text="${task.startTime}"></td>
+                    <td th:text="${task.stopTime}"></td>
+                    <td th:text="${task.description}"></td>
+                    <td ><a  th:href="@{/deleteTask(id=${task.id})}" class="btn btn-danger">Delete</a></td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer::footer"></div>
+</body>
+</html>
